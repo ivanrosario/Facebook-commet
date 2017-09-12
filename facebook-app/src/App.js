@@ -100,23 +100,22 @@ class App extends Component {
 
   render() {
     const commentList = this.state.commentList.map(function(commentObj, i){
-       const replytocomment = this.state.commentList[i].replies.map(function(replyobj, childindex){
+      const replytocomment = this.state.commentList[i].replies.map(function(replyobj, childindex){
         return(
-       <div key={childindex}>
-           <p >{replyobj.reply}</p>
-           <button value="good" onClick={(add)=>{this.replyHandle("good", i,  childindex)}}>{this.state.commentList[i].replies[childindex].replyLike} Like</button>
-           <button value="bad" onClick={(add)=>{this.replyHandle("bad", i,  childindex)}}>{this.state.commentList[i].replies[childindex].replydislike} Like</button>
-           <button onClick={()=>{this.handleRemoveClick(i)}}>Remove</button>
-       </div>
+          <div key={childindex}>
+            <p >{replyobj.reply}</p>
+            <button value="good" onClick={(add)=>{this.replyHandle("good", i,  childindex)}}>{this.state.commentList[i].replies[childindex].replyLike} Like</button>
+            <button value="bad" onClick={(add)=>{this.replyHandle("bad", i,  childindex)}}>{this.state.commentList[i].replies[childindex].replydislike} Like</button>
+            <button onClick={()=>{this.handleRemoveClick(i)}}>Remove</button>
+          </div>
         )
       }, this);
       return (
         <li key={i}>{commentObj.comment}
-            <button value="like" onClick={(reaction)=>{this.handleResponseClick("like", i)}}>{this.state.commentList[i].likes} Like</button>
-            <button value="dislike" onClick={(reaction)=>{this.handleResponseClick("dislike", i)}}> {this.state.commentList[i].dislikes} Dislike</button>
-            <button onClick={()=>{this.handleRemoveClick(i)}}>Remove</button>
-            <input type="text" onChange={ (event) => {this.getUserReply(event, i)} } /> <button onClick={ () => {this.addReplyComment(i)}}>Reply</button>
-            {replytocomment}
+          <button value="like" onClick={(reaction)=>{this.handleResponseClick("like", i)}}>{this.state.commentList[i].likes} Like</button>
+          <button value="dislike" onClick={(reaction)=>{this.handleResponseClick("dislike", i)}}> {this.state.commentList[i].dislikes} Dislike</button>
+          <input type="text" onChange={ (event) => {this.getUserReply(event, i)} } /> <button onClick={ () => {this.addReplyComment(i)}}>Reply</button>
+          {replytocomment}
         </li>
 
       );
@@ -125,12 +124,12 @@ class App extends Component {
 
     return (
       <div className="App">
-          <h1>RedTalk</h1>
-          <input type="text" value={this.state.userInput} onChange={this.getUserInput} />
-          <button onClick={this.addUserComment}>Submit</button>
-          <ul>
-          {commentList}
-          </ul>
+        <h1>RedTalk</h1>
+        <input type="text" value={this.state.userInput} onChange={this.getUserInput} />
+        <button onClick={this.addUserComment}>Submit</button>
+        <ul>
+        {commentList}
+        </ul>
       </div>
     );
   }
