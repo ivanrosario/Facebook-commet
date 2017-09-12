@@ -106,7 +106,6 @@ class App extends Component {
             <p >{replyobj.reply}</p>
             <button value="good" onClick={(add)=>{this.replyHandle("good", i,  childindex)}}>{this.state.commentList[i].replies[childindex].replyLike} Like</button>
             <button value="bad" onClick={(add)=>{this.replyHandle("bad", i,  childindex)}}>{this.state.commentList[i].replies[childindex].replydislike} Like</button>
-            <button onClick={()=>{this.handleRemoveClick(i)}}>Remove</button>
           </div>
         )
       }, this);
@@ -115,6 +114,7 @@ class App extends Component {
           <button value="like" onClick={(reaction)=>{this.handleResponseClick("like", i)}}>{this.state.commentList[i].likes} Like</button>
           <button value="dislike" onClick={(reaction)=>{this.handleResponseClick("dislike", i)}}> {this.state.commentList[i].dislikes} Dislike</button>
           <input type="text" onChange={ (event) => {this.getUserReply(event, i)} } /> <button onClick={ () => {this.addReplyComment(i)}}>Reply</button>
+          <button onClick={()=>{this.handleRemoveClick(i)}}>Remove</button>
           {replytocomment}
         </li>
 
