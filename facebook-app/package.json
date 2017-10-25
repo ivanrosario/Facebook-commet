@@ -1,5 +1,6 @@
 {
   "name": "facebook-app",
+  "homepage" : "http://irosario.road2hire.ninja/commentApp", 
   "version": "0.1.0",
   "private": true,
   "dependencies": {
